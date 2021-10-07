@@ -1,0 +1,35 @@
+.all{
+    background-color: mistyrose;
+    position: relative;
+    overflow: auto;
+}
+
+
+.all h1{
+    text-align: center;
+    color: blue;
+}
+
+.boxinput{
+    margin-left: 25px;
+    border-radius: 10px;
+}
+
+.method_select{
+    border-radius: 20%;;
+    min-width: 100px;
+    min-height: 5em;
+    float: right;
+    right: 2%;
+    top: 50px;
+    position: fixed;
+    z-index: 99;
+}
+
+.confirm{
+    background-color: green;
+    min-width: 100px;
+    min-height: 3em;
+    margin-left: 20%;
+}
+
