@@ -2,6 +2,8 @@
     background-color: mistyrose;
     position: relative;
     overflow: auto;
+    max-width: 50%;
+    margin: 0 auto;
 }
 
 
@@ -27,9 +29,11 @@
 }
 
 .confirm{
+    display: block;
     background-color: green;
     min-width: 100px;
     min-height: 3em;
-    margin-left: 20%;
+    margin: auto;
+
 }
 
