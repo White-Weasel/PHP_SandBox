@@ -27,7 +27,7 @@
         <h1>Đăng ký thông tin</h1>
         <form method="'.$cur_method.'" name="thong_tin">
         
-            <input class="boxinput" type="text" name="name" placeholder="Nhập tên" style="width: 500px;"><br/>
+            <input class="boxinput" type="text" name="name" autocomplete="off" placeholder="Nhập tên" style="width: 500px;"><br/>
             <input class="boxinput" type="password" name="pass" placeholder="Nhập mật khẩu" style="width: 250px;"><br/>
             <input class="boxinput" type="date" name="date"><br/>
             <p style="margin-left:25px;">Giới tính:  
@@ -45,38 +45,34 @@
         </form>';
             if(strcmp($cur_method, "POST") == 0)
             {
-                if(isset($_POST['sub']))
-                {
-                    echo "<p>Tên: ".$_POST['name']."</p>";
-                    echo "<p>Mật khẩu: ".$_POST['pass']."</p>";
-                    echo "<p>Giới tính: ".$_POST['gt']."</p>";
-                    
-                    if(isset($_POST['st']) && !empty($_POST['st']))
-                    {
-                        echo "<p>Sở thích: ";
-                        foreach ($_POST['st'] as $st)
-                            echo $st."    ";
-                    }
-
-                }
+                $DATA = $_POST;
             }
             else
             {
-                if(isset($_GET['sub']))
-                {
-                    echo "<p>Tên: ".$_GET['name']."</p>";
-                    echo "<p>Mật khẩu: ".$_GET['pass']."</p>";
-                    echo "<p>Giới tính: ".$_GET['gt']."</p>";
-                    
-                    if(isset($_GET['st']) && !empty($_GET['st']))
-                    {
-                        echo "<p>Sở thích: ";
-                        foreach ($_GET['st'] as $st)
-                            echo $st."    ";
-                    }
-                }
-
+                $DATA = $_GET;
             }
+            if(isset($DATA['sub']))
+            {
+                //echo "<p>Tên: ".$DATA['name']."</p>";
+                //echo "<p>Mật khẩu: ".$DATA['pass']."</p>";
+                //echo "<p>Ngày sinh: ".$DATA['date']."</p>";
+                //echo "<p>Giới tính: ".$DATA['gt']."</p>";
+                //
+                //if(isset($DATA['st']) && !empty($DATA['st']))
+                //{
+                //    echo "<p>Sở thích: ";
+                //    foreach ($DATA['st'] as $st)
+                //        echo $st."    ";
+                //}
+
+                include("control.php");
+                $dulieu = new data();
+                if($dulieu->insert_student($DATA))
+                    echo '<script>alert("OK!")</script>';
+            }
+
+
+            
         ?>
     </div>
 </body>
