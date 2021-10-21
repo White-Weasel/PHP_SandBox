@@ -51,7 +51,9 @@
             $user->birth = new Datetime($_POST["birth"]);
             if(isset($_POST["hobbies"]))$user->hobbies = $_POST["hobbies"];
             $user_service = new UserService();
-            if($user_service->SignUp($user)){
+
+            if($user_service->AccountExsit($_POST["username"])) echo "<script>alert('Tài khoản tồn tại')</script>";
+            elseif($user_service->SignUp($user)){
                 header("location: /PHP/LT2/login.php");
             }
             else echo "<script>alert('Đăng ký không thành công')</script>";

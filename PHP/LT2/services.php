@@ -6,6 +6,7 @@
         public array $hobbies;
     }
     class UserService{
+
         private mysqli $conn;
         public function __construct()
         {
@@ -58,6 +59,13 @@
         public function Logout(){
             if(session_id()=='')session_start();
             session_destroy();
+        }
+        public function AccountExsit(string $username){
+            if(isset($username)){
+                $result = $this->conn->query("SELECT * FROM user WHERE username='$username'");
+                return $result->num_rows==1;
+            }
+            return true;
         }
         public function SignUp(User $user){
             if(isset($user)){
