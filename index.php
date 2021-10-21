@@ -3,40 +3,34 @@
 <head>
     <meta content="utf-8" http-equiv="encoding">
     <title>Giang - LTMT1 - CD193569</title>
+    <link rel="stylesheet" href="src/site.css">
     <link rel="stylesheet" href="src/index.css">
 </head>
 <body>
-    <div style="width: 100vw; height: 100vh; position: absolute; display: flex; top:0px; left:0px;">
+    <div class="flex full-w full-h" style="position: absolute;top:0px; left:0px;">
         <div class="func_select">
             <h1>Chọn bài</h1>
-            <button class="minimize_btn"><-</button>
-            <div>
-                <h2>Buổi 1:</h2>
-                <div>
-                    <button class="func_select_btn" value="PHP/LT1/Bai1.php">Bài 1: Kiểm tra lớn nhỏ</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai2.php">Bài 2: Kiểm tra chẵn lẻ</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai3.php">Bài 3: Xác định đối tượng</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai4.php">Bài 4: Xếp loại học tập</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai5.php">Bài 5: Kiểm tra thứ</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai6.php">Bài 6: Bảng cửu chương</button><br/>
-                    <button class="func_select_btn" value="PHP/LT1/Bai7.php">Bài 7: Dãy số tự nhiên</button><br/>
+            <button class="btn minimize_btn"><-</button>
+            <div class="flex flex-dir-col" style="margin-bottom: 10px;">
+                <button id="btn-buoi1" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 1</button>
+                <div class="collapse" trigger="btn-buoi1">
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai1.php">Bài 1: Kiểm tra lớn nhỏ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai2.php">Bài 2: Kiểm tra chẵn lẻ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai3.php">Bài 3: Xác định đối tượng</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai4.php">Bài 4: Xếp loại học tập</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai5.php">Bài 5: Kiểm tra thứ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai6.php">Bài 6: Bảng cửu chương</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai7.php">Bài 7: Dãy số tự nhiên</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai8.php">Bài 8: In dãy số lẻ</button><br/>
                 </div>
-                <br/>
-                <br/>
-                <br/>
             </div>
-
-            <div>
-                <h2>Buổi 2:</h2>
-                <div>
-                    <a href="PHP/LT2/Bai1.php"><button class="func_select_btn">Bài 1: Thông tin cá nhân</button></a><br/>
+            <div class="flex flex-dir-col" style="margin-bottom: 10px;">
+                <button id="btn-buoi2" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 2</button>
+                <div class="collapse" trigger="btn-buoi2">
+                    <a href="PHP/LT2/Bai1.php"><button class="btn func_select_btn">Bài 1: Thông tin cá nhân</button></a><br/>
                 </div>
-                <br/>
-                <br/>
-                <br/>
             </div>
         </div>
-
         <div class="func_show">
             <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây</h1>
             <iframe id="func_show_iframe" src="" style="width:100%; height: 100%; border: none"></iframe>
@@ -84,5 +78,6 @@
             }
         } 
     </script>
+    <script type="text/javascript" src="/src/site.js"></script>
 </body>
 </html> 
