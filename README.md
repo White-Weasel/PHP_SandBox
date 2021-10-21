@@ -13,6 +13,7 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 - Sử dụng duy nhất một database là `ltmt` trong suốt quá trình phát triển
 ### Yêu cầu table cơ sở dữ liệu
 - **user**
+
 | Field|Type |Length |Allow Null |Default Value |
 |------|:---|:-----|:----------|:------------|
 | id | INT | 11 | No | AUTO_INCREMENT |
