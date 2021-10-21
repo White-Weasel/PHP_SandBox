@@ -27,7 +27,8 @@
             <div class="flex flex-dir-col" style="margin-bottom: 10px;">
                 <button id="btn-buoi2" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 2</button>
                 <div class="collapse" trigger="btn-buoi2">
-                    <a href="PHP/LT2/Bai1.php"><button class="btn func_select_btn">Bài 1: Thông tin cá nhân</button></a><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/login.php">Bài 1: Đăng nhập</button></a><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/signup.php">Bài 2: Đăng ký</button></a><br/>
                 </div>
             </div>
         </div>
