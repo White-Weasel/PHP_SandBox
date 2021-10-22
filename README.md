@@ -12,6 +12,7 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 - **Không sử dụng mật khẩu** cho csdl
 - Sử dụng duy nhất một database là `ltmt` trong suốt quá trình phát triển
 ### Yêu cầu table cơ sở dữ liệu
+- Sử dụng query có sẵn trong thư mục `PHP/LT2/setup/db.sql` để khởi tạo database trên MySql server
 - **user**
 
 | Field|Type |Length |Allow Null |Default Value |
