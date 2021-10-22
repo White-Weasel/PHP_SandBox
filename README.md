@@ -7,9 +7,7 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 - PHP >= 7.0
 ## Cơ sở dữ liệu
 ### Yêu cầu chung
-- Chạy trên `localhost`
-- Tên người dùng csdl là `root`
-- **Không sử dụng mật khẩu** cho csdl
+- Có thể sử dụng csdl từ xa, thiết lập ở thư mục `PHP/LT2/services.php`
 - Sử dụng duy nhất một database là `ltmt` trong suốt quá trình phát triển
 ### Yêu cầu table cơ sở dữ liệu
 - **user**
