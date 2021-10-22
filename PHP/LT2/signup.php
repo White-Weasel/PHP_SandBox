@@ -28,6 +28,15 @@
                 <input id="gd_Khac" name="gender" type="radio" value="Khác">
                 <label for="gd_Khac">Khác</label>
             </div>
+            <div class="flex align-items-center" style="margin-bottom: 10px;">
+                <label for="slt_Address">Quê quán:</label>
+                <select class="input-field" id="slt_Address" name="address_id">
+                    <option value="0">----Chọn tên một tỉnh----</option>
+                    <?php foreach((new AddressService())->GetAddressAll() as $address): ?>
+                        <option value="<?= $address->id ?>"><?= $address->province ?></option>
+                    <?php endforeach; /*<?= something ?> Là lệnh echo something */ ?>
+                </select>
+            </div>
             <div class="flex" style="margin-bottom: 10px;">Sở thích:
                 <div>
                     <input id="hb_Game" name="hobbies[]" type="checkbox" value="Chơi game">
@@ -44,14 +53,10 @@
     </div>
     <?php
         if(isset($_POST["submited"])){
-            $user = new User();
-            $user->username = $_POST["username"];
-            $user->password = $_POST["password"];
-            $user->gender = $_POST["gender"];
-            $user->birth = new Datetime($_POST["birth"]);
+            $user = new User(null, $_POST["username"], $_POST["password"], $_POST["gender"], new Datetime($_POST["birth"]),new Address());
+            if($_POST["address_id"]>0)$user->address->id=$_POST["address_id"];
             if(isset($_POST["hobbies"]))$user->hobbies = $_POST["hobbies"];
             $user_service = new UserService();
-
             if($user_service->AccountExsit($_POST["username"])) echo "<script>alert('Tài khoản tồn tại')</script>";
             elseif($user_service->SignUp($user)){
                 header("location: /PHP/LT2/login.php");

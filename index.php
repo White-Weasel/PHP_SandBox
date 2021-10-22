@@ -14,21 +14,23 @@
             <div class="flex flex-dir-col" style="margin-bottom: 10px;">
                 <button id="btn-buoi1" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 1</button>
                 <div class="collapse" trigger="btn-buoi1">
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai1.php">Bài 1: Kiểm tra lớn nhỏ</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai2.php">Bài 2: Kiểm tra chẵn lẻ</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai3.php">Bài 3: Xác định đối tượng</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai4.php">Bài 4: Xếp loại học tập</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai5.php">Bài 5: Kiểm tra thứ</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai6.php">Bài 6: Bảng cửu chương</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai7.php">Bài 7: Dãy số tự nhiên</button><br/>
-                    <button class="btn func_select_btn" value="PHP/LT1/Bai8.php">Bài 8: In dãy số lẻ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai1.php">Kiểm tra lớn nhỏ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai2.php">Kiểm tra chẵn lẻ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai3.php">Xác định đối tượng</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai4.php">Xếp loại học tập</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai5.php">Kiểm tra thứ</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai6.php">Bảng cửu chương</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai7.php">Dãy số tự nhiên</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT1/Bai8.php">In dãy số lẻ</button><br/>
                 </div>
             </div>
             <div class="flex flex-dir-col" style="margin-bottom: 10px;">
                 <button id="btn-buoi2" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 2</button>
                 <div class="collapse" trigger="btn-buoi2">
-                    <button class="btn func_select_btn" value="PHP/LT2/login.php">Bài 1: Đăng nhập</button></a><br/>
-                    <button class="btn func_select_btn" value="PHP/LT2/signup.php">Bài 2: Đăng ký</button></a><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/login.php">Đăng nhập</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/signup.php">Đăng ký</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/users/home.php">Quản lý User</button><br/>
+                    <button class="btn func_select_btn" value="PHP/LT2/address/home.php">Quản lý Address</button><br/>
                 </div>
             </div>
         </div>
@@ -37,7 +39,6 @@
             <iframe id="func_show_iframe" src="" style="width:100%; height: 100%; border: none"></iframe>
         </div>
     </div>
-
     <script>
         const minbtn = document.getElementsByClassName("minimize_btn")[0];
         const func_select = document.getElementsByClassName("func_select")[0];

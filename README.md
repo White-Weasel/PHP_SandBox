@@ -22,6 +22,14 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 | birth | DATE | Không | No | No default |
 | gender | VARCHAR | 10 | Yes | NULL |
 | hobbies | VARCHAR | 255 | Yes | NULL |
+| address_id | INT | 11 | Yes | No default |
+
+- **address**
+
+| Field|Type |Length |Allow Null |Default Value |
+|------|:---|:-----|:----------|:------------|
+| id | INT | 11 | No | AUTO_INCREMENT |
+| province | VARCHAR | 255 | No | No default |
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

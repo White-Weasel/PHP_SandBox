@@ -29,6 +29,7 @@
                     <td>Gender</td>
                     <td>Birth</td>
                     <td>Hobbies</td>
+                    <td>Address</td>
                     <td>Delete</td>
                     <td>Update</td>
                 </tr>
@@ -43,6 +44,7 @@
                         <td><?= $user->gender ?></td>
                         <td><?= $user->birth->format("d/m/Y")?></td>
                         <td><?= join(", ",$user->hobbies) ?></td>
+                        <td><?= isset($user->address->province)?$user->address->province:"" ?></td>
                         <td>
                             <a href="/PHP/LT2/users/delete.php?id=<?= $user->id?>" onclick="return confirm('Bạn có muốn xoá người dùng <?= $user->username ?> không');">Delete</a>
                         </td>

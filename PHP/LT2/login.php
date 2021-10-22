@@ -24,7 +24,8 @@
         if(isset($_POST["submited"])){
             $service = new UserService();
             if($service->Login($_POST["username"], $_POST["password"])){
-                header("location: /PHP/LT2/users/home.php");
+                if(isset($_GET["redirect"]))header("location: ".$_GET["redirect"]);
+                else header("location: /PHP/LT2/users/home.php");
             }
             else echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu')</script>";
         }
