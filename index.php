@@ -40,6 +40,8 @@
         </div>
     </div>
     <script>
+        //Code của nút thu nhỏ, khi bấm vào sẽ phóng to|thu nhỏ menu chọn bài
+
         const minbtn = document.getElementsByClassName("minimize_btn")[0];
         const func_select = document.getElementsByClassName("func_select")[0];
 
@@ -68,6 +70,7 @@
 
 
     <script>
+        //Code của nút chọn bài, khi bấm vào mỗi bài src của đối tượng iframe sẽ thay đổi tương ứng với bài đó
         ifr = document.getElementById("func_show_iframe");
         h = document.getElementById("func_show_about");
         btn = document.getElementsByClassName("func_select_btn");
