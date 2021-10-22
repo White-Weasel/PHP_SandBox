@@ -20,7 +20,7 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 | birth | DATE | Không | No | No default |
 | gender | VARCHAR | 10 | Yes | NULL |
 | hobbies | VARCHAR | 255 | Yes | NULL |
-| address_id | INT | 11 | Yes | No default |
+| address_id | INT | 11 | Yes | NULL |
 
 - **address**
 
