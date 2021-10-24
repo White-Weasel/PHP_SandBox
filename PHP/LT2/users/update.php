@@ -57,8 +57,9 @@
     </div>
     <?php
         if(isset($_POST["submited"])){
-            $user = new User($_POST["id"], $_POST["username"],$_POST["password"],$_POST["gender"],new Datetime($_POST["birth"]), new Address());
-            if(isset($_POST["address_id"]))$user->address->id=$_POST["address_id"];
+            $user = new User($_POST["username"],$_POST["password"],$_POST["gender"],new Datetime($_POST["birth"]),null, new Address());
+            $user->id=$_POST["id"];
+            if($_POST["address_id"]>0)$user->address->id=$_POST["address_id"];
             if(isset($_POST["hobbies"]))$user->hobbies = $_POST["hobbies"];
             $user_service = new UserService();
             if($user_service->Update($user)){

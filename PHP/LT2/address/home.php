@@ -18,7 +18,7 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Tên tỉnh</td>
+                    <td>Tỉnh - Thành Phố</td>
                     <td>Delete</td>
                     <td>Update</td>
                 </tr>

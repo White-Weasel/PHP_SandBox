@@ -16,13 +16,13 @@
     <div class="flex justify-content-center">
         <form class="flex flex-dir-col" method="POST" style="width: 355px;">
             <h1 class="text-center">Thêm mới địa chỉ</h1>
-            <input class="input-field" type="text" name="province" placeholder="Tên tỉnh" required style="margin-bottom: 10px;">
+            <input class="input-field" type="text" name="province" placeholder="Tên tỉnh hoặc thành phố" required style="margin-bottom: 10px;">
             <input class="btn btn-blue" name="submited" type="submit" value="Create" style="margin-bottom: 10px;">
         </form>
     </div>
     <?php
         if(isset($_POST["submited"])){
-            $address = new Address(null, $_POST["province"]);
+            $address = new Address($_POST["province"]);
             $address_sv = new AddressService();
             if($address_sv->Create($address)){
                 header("location: /PHP/LT2/address/home.php");
