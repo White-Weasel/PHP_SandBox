@@ -30,9 +30,8 @@
                 $result = $this->conn->query("SELECT * FROM address WHERE id=$id");
                 if($result->num_rows==1){
                     $row=$result->fetch_assoc();
-                    $address = new Address();
+                    $address = new Address($row["province"]);
                     $address->id = $id;
-                    $address->province = $row["province"];
                     return $address;
                 }
             }
@@ -43,9 +42,8 @@
             $out = array();
             if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
-                    $address = new Address();
+                    $address = new Address($row["province"]);
                     $address->id = $row["id"];
-                    $address->province = $row["province"];
                     $out[] = $address;
                 }
             }
@@ -90,13 +88,8 @@
                 $result = $this->conn->query("SELECT * FROM user WHERE id=$id");
                 if($result->num_rows==1){
                     $row = $result->fetch_assoc();
-                    $user = new User();
+                    $user = new User($row["username"],$row["password"],$row["gender"],new Datetime($row["birth"]),explode(",",$row["hobbies"]));
                     $user->id=$id;
-                    $user->username = $row["username"];
-                    $user->password = $row["password"];
-                    $user->gender = $row["gender"];
-                    $user->birth = new Datetime($row["birth"]);
-                    $user->hobbies = explode(",",$row["hobbies"]);
                     //Get Address
                     $user->address = (new AddressService($this))->GetAddress($row["address_id"]);
                     return $user;   
@@ -108,13 +101,8 @@
             $result = $this->conn->query("SELECT * FROM user");
             $out = array();
             while($row = $result->fetch_assoc()){
-                $user = new User();
+                $user = new User($row["username"],$row["password"],$row["gender"],new Datetime($row["birth"]),explode(",",$row["hobbies"]));
                 $user->id=$row["id"];
-                $user->username = $row["username"];
-                $user->password = $row["password"];
-                $user->gender = $row["gender"];
-                $user->birth = new Datetime($row["birth"]);
-                $user->hobbies = explode(",",$row["hobbies"]);
                 //Get Address
                 $user->address = (new AddressService($this))->GetAddress($row["address_id"]);
                 $out[] = $user;   
