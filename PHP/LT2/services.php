@@ -4,7 +4,7 @@
         protected mysqli $conn; //protected giống private nhưng dành cho kế thừa
         public function __construct()
         {
-            $db_url = parse_url("mysql://b5d2c6913e493e:ea6dbeda@eu-cdbr-west-01.cleardb.com/heroku_1832b1002170d0d?reconnect=true");
+            $db_url = parse_url($_ENV['CLEARDB_DATABASE_URL']);
             $db_server = $db_url["host"];
             $db_username = $db_url["user"];
             $db_password = $db_url["pass"];
