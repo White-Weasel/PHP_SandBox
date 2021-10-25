@@ -39,14 +39,9 @@
             <iframe id="func_show_iframe" src="" style="width:100%; height: 100%; border: none"></iframe>
         </div>
     </div>
-<<<<<<< HEAD
-
-    <script>
-=======
     <script>
         //Code của nút thu nhỏ, khi bấm vào sẽ phóng to|thu nhỏ menu chọn bài
 
->>>>>>> c0e118ad2f92df5676f72d8ed0b6ddfd7502949c
         const minbtn = document.getElementsByClassName("minimize_btn")[0];
         const func_select = document.getElementsByClassName("func_select")[0];
 
@@ -75,10 +70,7 @@
 
 
     <script>
-<<<<<<< HEAD
-=======
         //Code của nút chọn bài, khi bấm vào mỗi bài src của đối tượng iframe sẽ thay đổi tương ứng với bài đó
->>>>>>> c0e118ad2f92df5676f72d8ed0b6ddfd7502949c
         ifr = document.getElementById("func_show_iframe");
         h = document.getElementById("func_show_about");
         btn = document.getElementsByClassName("func_select_btn");
@@ -91,9 +83,6 @@
             }
         } 
     </script>
-<<<<<<< HEAD
-=======
     <script type="text/javascript" src="/src/site.js"></script>
->>>>>>> c0e118ad2f92df5676f72d8ed0b6ddfd7502949c
 </body>
 </html> 
