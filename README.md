@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# PHP_SandBox
-=======
 # PHP_SandBox
 Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luyện tập sử dụng [Git](https://git-scm.com/)/[GitHub](https://github.com/)
 
@@ -16,4 +13,3 @@ Một repos phục vụ cho quá trình làm bài tập lý thuyết PHP và luy
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Please make sure to update tests as appropriate.
->>>>>>> c0e118ad2f92df5676f72d8ed0b6ddfd7502949c
