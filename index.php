@@ -2,7 +2,7 @@
 <html lang="en-VN">
 <head>
     <meta content="utf-8" http-equiv="encoding">
-    <title>Giang - LTMT1 - CD193569</title>
+    <title>LTMT1 - PHP</title>
     <link rel="stylesheet" href="src/site.css">
     <link rel="stylesheet" href="src/index.css">
 </head>
