@@ -1,0 +1,5 @@
+vendor/
+.env
+heroku logs.bat
+Heroku push.bat
+.vscode/
