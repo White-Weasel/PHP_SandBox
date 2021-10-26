@@ -1,0 +1,1 @@
+heroku logs --tail -a ltmt1-php-sandbox

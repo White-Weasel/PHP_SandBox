@@ -22,7 +22,7 @@
     }
     .b6-card:hover{
         color:white;
-        background-color: var(--flat-red);
+        background-color: var(--red);
     }
     @keyframes show-cards{
         from{opacity: 0;transform: translateY(30px);}

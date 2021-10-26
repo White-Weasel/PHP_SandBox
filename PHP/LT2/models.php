@@ -1,18 +1,22 @@
 <?php
     class Address{
-        public $id;
-        public $province;//Tỉnh
-        public function __construct($id=null,$province=null)
+        public ?int $id;
+        public ?string $province;//Tỉnh
+        public function __construct(?string $province=null)
         {
-            $this->id=$id;
+            $this->id=null;
             $this->province=$province;
         }
     }
     class User{
-        public $id, $username, $password, $gender, $birth,$hobbies,$address;
-        public function __construct($id=null,$username=null,$password=null,$gender=null,$birth=null,$hobbies=null,$address=null)
+        public ?int $id;
+        public ?string $username, $password, $gender;
+        public ?DateTime $birth;
+        public ?array $hobbies;
+        public ?Address $address;
+        public function __construct(?string $username=null,?string $password=null,?string $gender=null,?Datetime $birth=null,?array $hobbies=null,?Address $address=null)
         {
-            $this->id=$id;
+            $this->id=null;
             $this->username=$username;
             $this->password=$password;
             $this->gender=$gender;

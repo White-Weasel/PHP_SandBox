@@ -4,13 +4,14 @@
         protected mysqli $conn; //protected giống private nhưng dành cho kế thừa
         public function __construct()
         {
-            $db_url = parse_url("mysql://b5d2c6913e493e:ea6dbeda@eu-cdbr-west-01.cleardb.com/heroku_1832b1002170d0d?reconnect=true");
+            $db_url = parse_url($_ENV['CLEARDB_DATABASE_URL']);
             $db_server = $db_url["host"];
             $db_username = $db_url["user"];
             $db_password = $db_url["pass"];
             $db = substr($db_url["path"], 1);
 
             $this->conn = mysqli_connect($db_server, $db_username, $db_password, $db);
+            //$this->conn = mysqli_connect('localhost', 'root', '', 'ltmt');
         }
         public function GetConnection(){
             return $this->conn;
@@ -29,9 +30,8 @@
                 $result = $this->conn->query("SELECT * FROM address WHERE id=$id");
                 if($result->num_rows==1){
                     $row=$result->fetch_assoc();
-                    $address = new Address();
+                    $address = new Address($row["province"]);
                     $address->id = $id;
-                    $address->province = $row["province"];
                     return $address;
                 }
             }
@@ -42,9 +42,8 @@
             $out = array();
             if($result->num_rows>0){
                 while($row=$result->fetch_assoc()){
-                    $address = new Address();
+                    $address = new Address($row["province"]);
                     $address->id = $row["id"];
-                    $address->province = $row["province"];
                     $out[] = $address;
                 }
             }
@@ -89,13 +88,8 @@
                 $result = $this->conn->query("SELECT * FROM user WHERE id=$id");
                 if($result->num_rows==1){
                     $row = $result->fetch_assoc();
-                    $user = new User();
+                    $user = new User($row["username"],$row["password"],$row["gender"],new Datetime($row["birth"]),explode(",",$row["hobbies"]));
                     $user->id=$id;
-                    $user->username = $row["username"];
-                    $user->password = $row["password"];
-                    $user->gender = $row["gender"];
-                    $user->birth = new Datetime($row["birth"]);
-                    $user->hobbies = explode(",",$row["hobbies"]);
                     //Get Address
                     $user->address = (new AddressService($this))->GetAddress($row["address_id"]);
                     return $user;   
@@ -107,13 +101,8 @@
             $result = $this->conn->query("SELECT * FROM user");
             $out = array();
             while($row = $result->fetch_assoc()){
-                $user = new User();
+                $user = new User($row["username"],$row["password"],$row["gender"],new Datetime($row["birth"]),explode(",",$row["hobbies"]));
                 $user->id=$row["id"];
-                $user->username = $row["username"];
-                $user->password = $row["password"];
-                $user->gender = $row["gender"];
-                $user->birth = new Datetime($row["birth"]);
-                $user->hobbies = explode(",",$row["hobbies"]);
                 //Get Address
                 $user->address = (new AddressService($this))->GetAddress($row["address_id"]);
                 $out[] = $user;   
