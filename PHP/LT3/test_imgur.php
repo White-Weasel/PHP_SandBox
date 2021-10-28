@@ -13,7 +13,7 @@
    <?php
       if (isset($_POST['submited']) && isset($_FILES))
       {
-         $target_dir = $_SERVER['DOCUMENT_ROOT']."/src/img/";
+         $target_dir = /*$_SERVER['DOCUMENT_ROOT'].*/"/src/img/";
          $target_file = $target_dir . basename($_FILES["fileToUpload"]["tmp_name"]);
          move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 
