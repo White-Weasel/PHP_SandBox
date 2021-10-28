@@ -13,12 +13,12 @@
    <?php
       if (isset($_POST['submited']) && isset($_FILES))
       {
-         $target_dir = "/app/src/img/";
-         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+         //$target_dir = "/app/src/img/";
+         //$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+         //move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
 
          $imgur = new Imgur();
-         echo $imgur->upload_image($file);
+         echo $imgur->upload_image($_FILES["fileToUpload"]["tmp_name"]);
       }
    ?>
 </body>
