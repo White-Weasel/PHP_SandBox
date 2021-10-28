@@ -15,6 +15,7 @@
         public function upload_image($file)
         {
             //nhận vào đường dẫn tới file ảnh (url online hoặc path trên máy), upload ảnh lên imgur và trả về link ảnh
+            //Todo: trả về json thay cho link
             $img = file_get_contents($file);
             $pvars  = array('image' => base64_encode($img));
 
