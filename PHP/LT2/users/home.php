@@ -21,38 +21,38 @@
     </div>
     <a href="/PHP/LT2/logout.php">Thoát đăng nhập</a>
     <table class="table table-blue">
-            <thead>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>Gender</td>
+                <td>Birth</td>
+                <td>Hobbies</td>
+                <td>Address</td>
+                <td>Delete</td>
+                <td>Update</td>
+            </tr>
+        </thead>
+        <?php
+            $user_list = (new UserService())->GetUserAll();
+            foreach($user_list as $user): ?>
                 <tr>
-                    <td>ID</td>
-                    <td>Username</td>
-                    <td>Password</td>
-                    <td>Gender</td>
-                    <td>Birth</td>
-                    <td>Hobbies</td>
-                    <td>Address</td>
-                    <td>Delete</td>
-                    <td>Update</td>
+                    <td><?= $user->id ?></td>
+                    <td><?= $user->username ?></td>
+                    <td><?= $user->password ?></td>
+                    <td><?= $user->gender ?></td>
+                    <td><?= $user->birth->format("d/m/Y")?></td>
+                    <td><?= join(", ",$user->hobbies) ?></td>
+                    <td><?= isset($user->address->province)?$user->address->province:"" ?></td>
+                    <td>
+                        <a href="/PHP/LT2/users/delete.php?id=<?= $user->id?>" onclick="return confirm('Bạn có muốn xoá người dùng <?= $user->username ?> không');">Delete</a>
+                    </td>
+                    <td>
+                        <a href="/PHP/LT2/users/update.php?id=<?= $user->id?>">Update</a>
+                    </td>
                 </tr>
-            </thead>
-            <?php
-                $user_list = (new UserService())->GetUserAll();
-                foreach($user_list as $user): ?>
-                   <tr>
-                        <td><?= $user->id ?></td>
-                        <td><?= $user->username ?></td>
-                        <td><?= $user->password ?></td>
-                        <td><?= $user->gender ?></td>
-                        <td><?= $user->birth->format("d/m/Y")?></td>
-                        <td><?= join(", ",$user->hobbies) ?></td>
-                        <td><?= isset($user->address->province)?$user->address->province:"" ?></td>
-                        <td>
-                            <a href="/PHP/LT2/users/delete.php?id=<?= $user->id?>" onclick="return confirm('Bạn có muốn xoá người dùng <?= $user->username ?> không');">Delete</a>
-                        </td>
-                        <td>
-                            <a href="/PHP/LT2/users/update.php?id=<?= $user->id?>">Update</a>
-                        </td>
-                    </tr>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
     </table>
 </body>
 </html>

@@ -33,6 +33,12 @@
                     <button class="btn func_select_btn" value="PHP/LT2/address/home.php">Quản lý Address</button><br/>
                 </div>
             </div>
+            <div class="flex flex-dir-col" style="margin-bottom: 10px;">
+                <button id="btn-buoi6" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 6</button>
+                <div class="collapse" trigger="btn-buoi6">
+                    <button class="btn func_select_btn" value="PHP/LT2/test_upload_file.php">Upload file</button><br/>
+                </div>
+            </div>
         </div>
         <div class="func_show">
             <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây</h1>
