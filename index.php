@@ -1,3 +1,5 @@
+<?php define ('SITE_ROOT', realpath(dirname(__FILE__))); ?>
+
 <!DOCTYPE html>
 <html lang="en-VN">
 <head>
