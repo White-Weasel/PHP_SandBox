@@ -29,28 +29,31 @@
     </div>
     <?php
         $mail = new PHPMailer(true);
-        try {
-            $mail->SMTPDebug = 2;
-            $mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
-            $mail->SMTPAuth = true;
-            $mail->Username = "ltmt1.cd193569.giang@gmail.com";
-            $mail->Password = "ndbghdvn";
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-            $mail->CharSet = 'UTF-8';
-            $mail->setFrom('ltmt1.cd193569.giang@gmail.com');
-            $mail->addAddress('vanyellow1211@gmail.com', 'Thu Van');
-            $mail->isHTML(true);
-            $mail->Subject = "Bài tập gửi email từ web";
-            $mail->Body = "Email xác nhận";
-            $mail->send();
-
-            echo "email gửi thành công";
-        }
-        catch (Exception $e)
+        if (isset($_POST['submited']))
         {
-            echo 'Cannot send email<br>Error: ', $mail->ErrorInfo;
+            try {
+                $mail->SMTPDebug = 2;
+                $mail->isSMTP();
+                $mail->Host = "smtp.gmail.com";
+                $mail->SMTPAuth = true;
+                $mail->Username = "ltmt1.cd193569.giang@gmail.com";
+                $mail->Password = "ndbghdvn";
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+                $mail->CharSet = 'UTF-8';
+                $mail->setFrom('ltmt1.cd193569.giang@gmail.com');
+                $mail->addAddress($_POST['email']);
+                $mail->isHTML(true);
+                $mail->Subject = "Bài tập gửi email từ web";
+                $mail->Body = "Email xác nhận";
+                $mail->send();
+
+                echo "email gửi thành công";
+            }
+            catch (Exception $e)
+            {
+                echo 'Cannot send email<br>Error: ', $mail->ErrorInfo;
+            }
         }
     ?>
 </body>
