@@ -30,7 +30,9 @@
     <div class="flex justify-content-center">
         <form class="flex flex-dir-col" method="POST" style="width: 355px;">
             <h1 class="text-center">Gửi email xác nhận tới</h1>
-            <input class="input-field" type="text" name="email" placeholder="Gửi tới email ..." required style="margin-bottom: 10px;">
+            To: <input class="input-field" type="text" name="email" placeholder="Gửi tới email ..." required style="margin-bottom: 10px;">
+            Subject: <input class="input-field" type="text" name="subject" placeholder="Tiêu đề" required style="margin-bottom: 10px;">
+            Body: <input class="input-field" type="text" name="body" placeholder="Nội dung" required style="margin-bottom: 10px; min-height: 10em;">
             <input class="btn btn-blue" name="submited" type="submit" value="Gửi" required style="margin-bottom: 10px;">
             <div>Chưa có tài khoản?<a class="text-bold" href="/PHP/LT2/signup.php" style="margin-left:5px">Đăng ký</a></div>
         </form>
@@ -52,8 +54,8 @@
                 $mail->setFrom('ltmt1.cd193569.giang@gmail.com');
                 $mail->addAddress($_POST['email']);
                 $mail->isHTML(true);
-                $mail->Subject = "Bài tập gửi email từ web";
-                $mail->Body = "Email xác nhận";
+                $mail->Subject = $_POST['subject'];
+                $mail->Body = $_POST['body'];
                 $mail->send();
 
                 echo "email gửi thành công";
