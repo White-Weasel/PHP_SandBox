@@ -1,0 +1,91 @@
+<?php
+    include $_SERVER['DOCUMENT_ROOT']."/PHP/LT2/services.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/src/site.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div class="flex justify-content-center">
+        <form class="flex flex-dir-col" method="POST" style="width: 355px;" enctype="multipart/form-data">
+            <h1 class="text-center">Đăng ký thông tin</h1>
+            <input class="input-field" type="text" name="username" placeholder="Tên đăng nhập" required style="margin-bottom: 10px;" autocomplete="off">
+            <input class="input-field" type="password" name="password" placeholder="Mật khẩu" required style="margin-bottom: 10px;">
+            <div class="flex align-items-center" style="margin-bottom: 10px;">
+                <label for="birth" style="flex:0.1 0 auto">Ngày sinh:</label>
+                <input id="birth" name="birth" class="input-field" type="date" style="flex: 0.9 1 auto" required>
+            </div>
+            <div class="flex" style="margin-bottom: 10px;">Giới tính:
+                <input id="gd_Nam" name="gender" type="radio" value="Nam" checked>
+                <label for="gd_Nam">Nam</label>
+                <input id="gd_Nu" name="gender" type="radio" value="Nữ">
+                <label for="gd_Nu">Nữ</label>
+                <input id="gd_Khac" name="gender" type="radio" value="Khác">
+                <label for="gd_Khac">Khác</label>
+            </div>
+            <div class="flex align-items-center" style="margin-bottom: 10px;">
+                <label for="slt_Address">Quê quán:</label>
+                <select class="input-field" id="slt_Address" name="address_id">
+                    <option value="0">----Chọn tên một tỉnh----</option>
+                    <?php foreach((new AddressService())->GetAddressAll() as $address): ?>
+                        <option value="<?= $address->id ?>"><?= $address->province ?></option>
+                    <?php endforeach; /*<?= something ?> Là lệnh echo something */ ?>
+                </select>
+            </div>
+            <div class="flex" style="margin-bottom: 10px;">Sở thích:
+                <div>
+                    <input id="hb_Game" name="hobbies[]" type="checkbox" value="Chơi game">
+                    <label for="hb_Game">Chơi game</label>
+                    <input id="hb_Phim" name="hobbies[]" type="checkbox" value="Xem phim">
+                    <label for="hb_Phim">Xem phim</label>
+                    <input id="hb_Hoc" name="hobbies[]" type="checkbox" value="Học tập">
+                    <label for="hb_Hoc">Học tập</label>
+                </div>
+            </div>
+            <div class="flex" style="margin-bottom: 10px">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            <input class="btn btn-blue" name="submited" type="submit" value="Đăng ký" style="margin-bottom: 10px;">
+            <div>Đã có tài khoản?<a class="text-bold" href="/PHP/LT2/login.php" style="margin-left:5px">Đăng nhập</a></div>
+        </form>
+    </div>
+    <?php
+        if(isset($_POST["submited"])){
+            $target_dir = $_SERVER['DOCUMENT_ROOT']."/src/img/";
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+            
+            $user = new User($_POST["username"], $_POST["password"], $_POST["gender"], new Datetime($_POST["birth"]),null, new Address());
+            $user->img = $target_file;
+            
+            if($_POST["address_id"]>0)$user->address->id=$_POST["address_id"];
+            if(isset($_POST["hobbies"]))$user->hobbies = $_POST["hobbies"];
+            $user_service = new UserService();
+            if($user_service->AccountExsit($_POST["username"])) echo "<script>alert('Tài khoản tồn tại')</script>";
+            elseif($user_service->SignUp($user)){
+                //test upload file
+                if(isset($_FILES['fileToUpload']))
+                {
+                   
+                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
+                    {
+                        echo "File ". basename( $_FILES["fileToUpload"]["name"])." Đã upload thành công.<br/>";
+                        echo "File lưu tại " . $target_file."<br/>";
+                        echo gettype($_FILES["fileToUpload"]);
+                        
+                    }
+                    else
+                        die;
+                }
+                echo "<script>alert('Đăng ký thành công')</script>";
+            }
+            else echo "<script>alert('Đăng ký không thành công')</script>";
+        }
+    ?>
+</body>
+</html>
