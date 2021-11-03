@@ -4,7 +4,7 @@
 
     if(isset($_ENV['IS_HEROKU']))
     {
-        $phpmailer_src = "/vendor/phpmailer/phpmailer/src/";
+        $phpmailer_src = "/app/vendor/phpmailer/phpmailer/src/";
     }
     else
     {
