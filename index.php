@@ -12,7 +12,7 @@
             <h1>Chọn bài</h1>
             <button class="btn minimize_btn"><-</button>
             <div class="flex flex-dir-col" style="margin-bottom: 10px;">
-                <button id="btn-buoi1" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 1</button>
+                <button id="btn-buoi1" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Tuần 1</button>
                 <div class="collapse" trigger="btn-buoi1">
                     <button class="btn func_select_btn" value="PHP/LT1/Bai1.php">Kiểm tra lớn nhỏ</button><br/>
                     <button class="btn func_select_btn" value="PHP/LT1/Bai2.php">Kiểm tra chẵn lẻ</button><br/>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="flex flex-dir-col" style="margin-bottom: 10px;">
-                <button id="btn-buoi2" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Buổi 2</button>
+                <button id="btn-buoi2" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Tuần 2</button>
                 <div class="collapse" trigger="btn-buoi2">
                     <button class="btn func_select_btn" value="PHP/LT2/login.php">Đăng nhập</button><br/>
                     <button class="btn func_select_btn" value="PHP/LT2/signup.php">Đăng ký</button><br/>
@@ -33,9 +33,21 @@
                     <button class="btn func_select_btn" value="PHP/LT2/address/home.php">Quản lý Address</button><br/>
                 </div>
             </div>
+            <div class="flex flex-dir-col" style="margin-bottom: 10px;">
+                <button id="btn-buoi6" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Tuần 6</button>
+                <div class="collapse" trigger="btn-buoi6">
+                    <button class="btn func_select_btn" value="PHP/LT3/sign_up_with_image.php">Upload file</button><br/>
+                </div>
+            </div>
+            <div class="flex flex-dir-col" style="margin-bottom: 10px;">
+                <button id="btn-buoi7" class="btn btn-blue text-bold" style="font-size: 1.2rem;">Tuần 7</button>
+                <div class="collapse" trigger="btn-buoi7">
+                    <button class="btn func_select_btn" value="PHP/LT4/send_email.php">Send Email</button><br/>
+                </div>
+            </div>
         </div>
         <div class="func_show">
-            <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây</h1>
+            <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây<br><a href="https://github.com/White-Weasel/PHP_SandBox">Github</a></h1>
             <iframe id="func_show_iframe" src="" style="width:100%; height: 100%; border: none"></iframe>
         </div>
     </div>

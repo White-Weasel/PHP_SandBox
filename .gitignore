@@ -3,3 +3,4 @@ vendor/
 heroku logs.bat
 Heroku push.bat
 .vscode/
+PHP/LT2/test_upload_file.php
