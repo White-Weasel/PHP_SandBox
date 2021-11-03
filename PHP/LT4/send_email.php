@@ -42,7 +42,7 @@
             $mail->setFrom('ltmt1.cd193569.giang@gmail.com');
             $mail->addAddress('vanyellow1211@gmail.com', 'Thu Van');
             $mail->isHTML(true);
-            $mail->Subject = "Bài tập gửi email";
+            $mail->Subject = "Bài tập gửi email từ web";
             $mail->Body = "Email xác nhận";
             $mail->send();
 
