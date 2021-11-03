@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en-VN">
 <head>
     <meta content="utf-8" http-equiv="encoding">
