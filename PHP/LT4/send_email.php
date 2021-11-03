@@ -2,11 +2,19 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
-    require $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\Exception.php';
-    require $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\PHPMailer.php';
-    require $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\SMTP.php';
-    require $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\POP3.php';
-    require $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\OAuth.php';
+    if(isset($_ENV['IS_HEROKU']))
+    {
+        $phpmailer_src = "/vendor/phpmailer/phpmailer/src";
+    }
+    else
+    {
+        $phpmailer_src = $_SERVER['DOCUMENT_ROOT'].'\\vendor\\phpmailer\\phpmailer\\src\\';
+    }
+    require $phpmailer_src.'Exception.php';
+    require $phpmailer_src.'PHPMailer.php';
+    require $phpmailer_src.'SMTP.php';
+    require $phpmailer_src.'POP3.php';
+    require $phpmailer_src.'OAuth.php';
 
 ?>
 <!DOCTYPE html>
