@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="func_show">
-            <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây</h1>
+            <h1 id="func_show_about">Bài tập được chọn sẽ hiển thị tại đây<br><a href="https://github.com/White-Weasel/PHP_SandBox">link Github</a></h1>
             <iframe id="func_show_iframe" src="" style="width:100%; height: 100%; border: none"></iframe>
         </div>
     </div>
